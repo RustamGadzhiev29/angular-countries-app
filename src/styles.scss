@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+  /*Colors*/
+  :root {
+    --main-blue: #2962FF;
+    --hover-blue: #004688;
+
+    --main-grey: #A5A5A5;
+    --light-grey: #FAFAFA;
+
+    --main-black: #000000;
+  }
+
+  /*Fonts*/
+  @font-face {
+    font-family: 'Roboto-Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('./assets/fonts/Roboto-Regular.ttf'), local('Roboto-Regular'),
+    url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+  }
+
+  @font-face {  
+    font-family: 'Roboto-Medium';
+    font-weight: 500;
+    font-style: normal;
+    src: local('./assets/fonts/Roboto-Medium.ttf'), local('Roboto-Medium'),
+    url('./assets/fonts/Roboto-Medium.ttf') format('truetype');
+  }
+
+
+  html, body {
+    width: 100%;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    outline: none;
+  }
+
+  body {
+    width: 100%;
+
+    a { text-decoration: none; }
+
+    input { outline: none; }
+
+    img { border: 0; max-width: 100%; }
+
+    blockquote, q { quotes: none; }
+    strong { font-weight: bold; }
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+    ol, ul { list-style: none; }
+
+  }
+  //Конец body
+
+
+  /*Общие стили*/
+
+  .typography h2 {
+    margin: 0;
+  }
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

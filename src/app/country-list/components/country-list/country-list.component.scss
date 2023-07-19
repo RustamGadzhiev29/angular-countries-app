@@ -1,0 +1,33 @@
+.country-list__container {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.country-list__wrapper {
+  width: 80%;
+  height: 100%;
+  padding: 52px 64px 162px 64px;
+  border-right: 1px solid var(--main-grey);
+  background-color: var(--light-grey);
+}
+
+.country-list__title {
+  height: 100%;
+  margin-bottom: 64px;
+  font-family: 'Roboto-Medium';
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.country-list__items {
+  height: 100%;
+  padding: 4.8vh 1.7vw;
+  width: 100%;
+}
+.country-list__filters {
+  height: 100%;
+  width: 20%;
+}

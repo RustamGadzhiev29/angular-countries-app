@@ -1,0 +1,13 @@
+<div class="country-list__container">
+  <div class="country-list__wrapper">
+    <h1 class="country-list__title">Countries</h1>
+    <ng-container *ngIf="countries$ | async as countries">
+      <app-country-list-item
+        *ngFor="let country of countries"
+        [country]="country"></app-country-list-item>
+    </ng-container>
+  </div>
+  <div class="country-list__filters">
+    <app-country-list-filters></app-country-list-filters>
+  </div>
+</div>
