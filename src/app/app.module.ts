@@ -7,6 +7,9 @@ import {CountryListRoutingModule} from './country-list/country-list-routing.modu
 import {CountryFormRoutingModule} from './country-form/country-form-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {CountryListModule} from './country-list/country-list.module';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,6 +19,8 @@ import {CountryListModule} from './country-list/country-list.module';
     CountryListRoutingModule,
     CountryFormRoutingModule,
     HttpClientModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],

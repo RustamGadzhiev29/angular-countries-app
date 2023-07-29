@@ -1,0 +1,35 @@
+.list-pagination__container {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  // padding: 10px;
+
+  .list-pagination__btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    .gray-fill {
+      fill: #aaa;
+    }
+
+    .blue-fill {
+      fill: #347cff;
+    }
+    img {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .list-pagination__current-page {
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    color: #000;
+    margin: 0 18px;
+  }
+}

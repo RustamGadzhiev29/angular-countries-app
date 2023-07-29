@@ -1,11 +1,15 @@
-import {Component, Input} from '@angular/core';
-import {ICountriesResponse, ICountry} from '../../models/country.models';
+import {Component, Input, OnInit} from '@angular/core';
+import {ICountry} from '../../models/country.models';
 
 @Component({
   selector: 'app-country-list-item',
   templateUrl: './country-list-item.component.html',
   styleUrls: ['./country-list-item.component.scss'],
 })
-export class CountryListItemComponent {
+export class CountryListItemComponent implements OnInit {
   @Input() country: ICountry = {} as ICountry;
+
+  ngOnInit(): void {
+    console.log(this.country);
+  }
 }

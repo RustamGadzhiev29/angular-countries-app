@@ -5,7 +5,14 @@ export interface ICountriesResponse {
     countries: ICountry[];
   };
 }
-
+export interface ICountryListVewModel {
+  countryListComponentViewModel$: {
+    countries: [];
+    isLoading: false;
+    // error: null,
+    currentPage: 1;
+  };
+}
 export interface ICountry {
   code?: string;
   name?: string;

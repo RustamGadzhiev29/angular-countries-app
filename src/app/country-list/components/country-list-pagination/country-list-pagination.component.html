@@ -1,0 +1,20 @@
+<div class="list-pagination__container">
+  <ng-container>
+    <button class="list-pagination__btn" (click)="prevPage()" [disabled]="isFirstPage()">
+      <!-- TODO : изменить  -->
+      <img
+        src="../../../../assets/img/prev.svg"
+        height="25"
+        alt="logo-ado"
+        [style.filter]="isFirstPage() ? 'grayscale(100%)' : 'none'" />
+    </button>
+    <div class="list-pagination__current-page">{{ currentPage }}</div>
+    <button class="list-pagination__btn" (click)="nextPage()" [disabled]="isLastPage()">
+      <img
+        src="../../../../assets/img/next.svg"
+        height="25"
+        alt="logo-ado"
+        [style.filter]="isLastPage() ? 'grayscale(100%)' : 'none'" />
+    </button>
+  </ng-container>
+</div>
