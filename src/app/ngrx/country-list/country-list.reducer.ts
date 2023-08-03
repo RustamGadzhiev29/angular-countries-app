@@ -18,18 +18,7 @@ export const initialState: CountryListState = {
 
 export const countryListNode = 'CountryList';
 
-// export const countryListReducer: ActionReducer<CountryListState> = (
-//   state = initialState,
-//   action: Action
-// ) => {
-//   switch (action.type) {
-//     case ActionTypes.LOAD_COMPLETED:
-//       return {...state, countries: {...(action as CountriesAction).payload.countries}};
-//     default:
-//       return state;
-//   }
 
-// };
 export const countryListReducer = createReducer(
   initialState,
   on(

@@ -9,15 +9,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {CountryListModule} from './country-list/country-list.module';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
+import {CountryFormModule} from './country-form/country-form.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CountryListModule,
-    CountryListRoutingModule,
-    CountryFormRoutingModule,
+    // CountryFormRoutingModule,
+    // CountryFormModule,
+    // CountryListModule,
     HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),

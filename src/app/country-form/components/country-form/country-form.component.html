@@ -1,1 +1,24 @@
-<p>country-form works!</p>
+<div class="country-form__container">
+  <div class="country-form__btn">
+    <a class="country-form__logo" [routerLink]="['/countries']">
+      <img src="../../../../assets/img/back.svg" height="25" alt="logo-ado" />
+    </a>
+    <span>Вернуться</span>
+  </div>
+  <ng-container *ngIf="countryViewModel$ | async as vm">
+    <h1 class="country-form_title">{{ vm.country.name }}</h1>
+    <div class="country-form__details">
+      <app-country-info
+        categoryName="Континент"
+        [value]="vm.country.continent?.name"></app-country-info>
+      <app-country-info categoryName="Валюта" [value]="vm.country.currency"></app-country-info>
+      <app-country-info categoryName="Столица" [value]="vm.country.capital"></app-country-info>
+      <app-country-info categoryName="Код" [value]="vm.country.code"></app-country-info>
+      <app-country-info
+        categoryName="Языки"
+        [value]="
+          vm.country.languages ? getLanguagesString(vm.country.languages) : ''
+        "></app-country-info>
+    </div>
+  </ng-container>
+</div>

@@ -2,19 +2,21 @@
   <div class="list-item__title">
     <h2 class="list-item__name">{{ country.name }}</h2>
     <div class="list-item__btn">
-      <a class="header__logo" href="">
+      <a class="header__logo" [routerLink]="['/country', country.code]">
         <img src="../../../../assets/img/forward.svg" height="25" alt="logo-ado" />
       </a>
     </div>
   </div>
   <div class="list-item__details">
-    <div class="list-item__capital-container">
+    <app-country-info categoryName="Столица" [value]="country.capital"></app-country-info>
+    <app-country-info categoryName="Континент" [value]="country.continent?.name"></app-country-info>
+    <!-- <div class="list-item__capital-container">
       <span class="list-item__capital">Столица</span>
       <span class="list-item__capital-title">{{ country.capital }}</span>
-    </div>
-    <div class="list-item__continent-container">
+    </div> -->
+    <!-- <div class="list-item__continent-container">
       <span class="list-item__continent">Континент</span>
       <span class="list-item__continent-title"> {{ country.continent?.name }}</span>
-    </div>
+    </div> -->
   </div>
 </div>

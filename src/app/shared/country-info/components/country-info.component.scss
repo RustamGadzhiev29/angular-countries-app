@@ -1,0 +1,14 @@
+.country-info__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 24vw;
+  }
+  
+  .country-info__title {
+    // margin-right: 104px;
+  }
+  
+  .country-info__value {
+    color: var(--main-blue);
+  }

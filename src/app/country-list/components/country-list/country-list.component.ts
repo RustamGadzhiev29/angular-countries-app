@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ICountry} from '../../models/country.models';
 import {map} from 'rxjs/operators';
@@ -15,6 +15,7 @@ import {
   selector: 'app-country-list',
   templateUrl: './country-list.component.html',
   styleUrls: ['./country-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountryListComponent implements OnInit {
   public countryListComponentViewModel$ = this.store.select(selectCountryListComponentViewModel);
@@ -32,6 +33,9 @@ export class CountryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(actions.countryListComponentInitialized());
+    this.countryListComponentViewModel$.subscribe(data => {
+      console.log(data);
+    });
     // this.countries$ = this.countryListStoreService.countries$;
     // this.loading$ = this.store.select(state => state.countryList.loading);
     // this.error$ = this.store.select(state => state.countryList.error);

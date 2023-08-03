@@ -2,7 +2,7 @@
 import {Action} from '@ngrx/store';
 import {Injectable} from '@angular/core';
 import {Actions, ofType, createEffect} from '@ngrx/effects';
-import {map, mergeMap} from 'rxjs/operators';
+import {map, mergeMap, tap} from 'rxjs/operators';
 import * as countriesActions from '../../ngrx/country-list/country-list.actions';
 import {Observable, switchMap} from 'rxjs';
 import {CountriesService} from 'src/app/country-list/services/country-list.service';
@@ -19,10 +19,11 @@ export class CountryListEffects {
       ofType(
         countriesActions.countryListComponentInitialized,
         countriesActions.loadAllRequested),
-      mergeMap(() =>
+        tap(action => console.log('Effect triggered:', action)),
+        switchMap(() =>
         this.api
           .getCountries()
-          .pipe(map(res => countriesActions.loadAllSucceeded({countries: res})))
+          .pipe(  tap(data => console.log('Data from API:', data)), map(res => countriesActions.loadAllSucceeded({countries: res})))
       )
     )
   );

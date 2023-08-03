@@ -9,6 +9,9 @@ import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {countryListNode, reducer} from '../ngrx/country-list/country-list.reducer';
 import {CountryListPaginationComponent} from './components/country-list-pagination/country-list-pagination.component';
+import {SharedModule} from '../shared/shared.module';
+import {CountryFormEffects} from '../ngrx/country-form/country-form.effects';
+import {CountryListRoutingModule} from './country-list-routing.module';
 // import {CountryListPaginationComponent} from './components/country-list-pagination/country-list-pagination.component';
 
 @NgModule({
@@ -20,6 +23,8 @@ import {CountryListPaginationComponent} from './components/country-list-paginati
   ],
   imports: [
     CommonModule,
+    SharedModule,
+    CountryListRoutingModule,
     StoreModule.forFeature(countryListNode, reducer),
     EffectsModule.forFeature([CountryListEffects]),
   ],

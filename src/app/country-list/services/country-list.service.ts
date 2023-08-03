@@ -19,8 +19,6 @@ export class CountriesService {
   ) {}
 
   getCountries(): Observable<ICountry[]> {
-    // this.store.dispatch(CountryListActions.loadCountries());
-
     const query = `
       {
         countries {
@@ -29,6 +27,7 @@ export class CountriesService {
           currency
           emoji
           phone
+          code
           continent {
             name
           }
@@ -39,43 +38,27 @@ export class CountriesService {
       .post<ICountriesResponse>(environment.baseUrl, {query})
       .pipe(map(response => response.data.countries));
   }
+  getCountry(code: string): Observable<ICountry> {
+    const query = `
+      {
+        country(code: "${code}") {
+          code
+          name
+          continent {
+            name
+          }
+          capital
+          currency
+          languages {
+            name
+          }
+          emoji
+          emojiU
+        }
+      }
+    `;
+    return this.http
+      .post<{data: {country: ICountry}}>(environment.baseUrl, {query})
+      .pipe(map(response => response.data.country));
+  }
 }
-
-// import {Injectable} from '@angular/core';
-// import {HttpClient} from '@angular/common/http';
-// import {environment} from 'src/app/environments/environment';
-// import {BehaviorSubject, Observable} from 'rxjs';
-// import {map} from 'rxjs/operators';
-// import {ICountriesResponse, ICountry} from '../models/country.models';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class CountriesService {
-//   countries$ = new BehaviorSubject<ICountry[]>([]);
-//   constructor(private http: HttpClient) {}
-
-//   getCountries() {
-//     const query = `
-//       {
-//         countries {
-//           name
-//           capital
-//           currency
-//           emoji
-//           phone
-//           continent {
-//             name
-//           }
-//         }
-//       }
-//     `;
-
-//     return this.http
-//       .post<ICountriesResponse>(environment.baseUrl, {query})
-//       .pipe(map(response => response.data.countries))
-//       .subscribe(countries => {
-//         this.countries$.next(countries);
-//       });
-//   }
-// }
