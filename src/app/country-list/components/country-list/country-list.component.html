@@ -2,14 +2,16 @@
   <div class="country-list__wrapper">
     <h1 class="country-list__title">Countries</h1>
     <ng-container *ngIf="countryListComponentViewModel$ | async as vm">
-      <app-country-list-item
-        *ngFor="
-          let country of vm.countries | slice: (+vm.currentPage - 1) * 5 : +vm.currentPage * 5
-        "
-        [country]="country"></app-country-list-item>
+      <ng-container *ngIf="!vm.isLoading; else spinner">
+        <app-country-list-item
+          *ngFor="
+            let country of vm.countries | slice: (vm.currentPage - 1) * 5 : vm.currentPage * 5
+          "
+          [country]="country"></app-country-list-item>
+      </ng-container>
     </ng-container>
-    <ng-template #noData>
-      <p>No countries found.</p>
+    <ng-template #spinner>
+      <app-spinner></app-spinner>
     </ng-template>
     <div class="country-list__pagination">
       <ng-container *ngIf="countryListComponentViewModel$ | async as vm">

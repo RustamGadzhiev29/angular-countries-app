@@ -6,12 +6,10 @@ export interface ICountriesResponse {
   };
 }
 export interface ICountryListVewModel {
-  countryListComponentViewModel$: {
-    countries: [];
-    isLoading: false;
-    // error: null,
-    currentPage: 1;
-  };
+  isLoading: boolean;
+  countries: ICountry[];
+  // error: null,
+  currentPage: number;
 }
 export interface ICountry {
   code?: string;

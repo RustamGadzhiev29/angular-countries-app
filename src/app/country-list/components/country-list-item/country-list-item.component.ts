@@ -7,7 +7,7 @@ import {ICountry} from '../../models/country.models';
   styleUrls: ['./country-list-item.component.scss'],
 })
 export class CountryListItemComponent implements OnInit {
-  @Input() country: ICountry = {} as ICountry;
+  @Input() country!: ICountry;
 
   ngOnInit(): void {
     console.log(this.country);

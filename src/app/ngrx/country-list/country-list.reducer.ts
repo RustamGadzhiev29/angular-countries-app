@@ -11,21 +11,17 @@ export interface CountryListState {
 
 export const initialState: CountryListState = {
   countries: [],
-  isLoading: false,
+  isLoading: true,
   // error: null,
   currentPage: 1,
 };
 
 export const countryListNode = 'CountryList';
 
-
 export const countryListReducer = createReducer(
   initialState,
-  on(
-    countriesActions.countryListComponentInitialized,
-    countriesActions.loadAllRequested,
-    state => ({...state, isLoading: true, error: ''})
-  ),
+  on(countriesActions.countryListComponentInitialized, state => state),
+  on(countriesActions.loadAllRequested, state => ({...state, isLoading: true, error: ''})),
   on(countriesActions.loadAllSucceeded, (state, {countries}) => {
     return {
       ...state,
@@ -51,4 +47,3 @@ export const countryListReducer = createReducer(
 export function reducer(state: CountryListState | undefined, action: Action) {
   return countryListReducer(state, action);
 }
-
