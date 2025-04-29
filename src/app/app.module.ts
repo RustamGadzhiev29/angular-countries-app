@@ -16,9 +16,9 @@ import {CountryFormModule} from './country-form/country-form.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // CountryFormRoutingModule,
-    // CountryFormModule,
-    // CountryListModule,
+    CountryFormRoutingModule,
+    CountryFormModule,
+    CountryListModule,
     HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
